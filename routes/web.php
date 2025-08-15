@@ -18,4 +18,4 @@ Route::get('/', function () {
 });
 
 
-Route::view('/dashboard','Dashboard')->name('dashboard');
+Route::view('/dashboard','teachers.pages.Dashboard')->name('dashboard');
