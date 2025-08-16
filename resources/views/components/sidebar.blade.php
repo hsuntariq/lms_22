@@ -43,6 +43,6 @@
 
 <script>
     $('.assignment-dropdown').on('click', function() {
-        $('.assignment-dropdown-menu').removeClass('hidden')
+        $('.assignment-dropdown-menu').toggle('hidden')
     })
 </script>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssignmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +19,15 @@ Route::get('/', function () {
 });
 
 
-Route::view('/dashboard','teachers.pages.Dashboard')->name('dashboard');
+// Route group for teacher
+
+Route::prefix('/teacher')->group(function(){
+    Route::view('/dashboard','teachers.pages.Dashboard')->name('teacher-dashboard');
+    Route::view('/upload-assignments','teachers.pages.upload-assignment')->name('teacher-upload-assignment');
+
+
+
+
+    // post routes
+    Route::post('/upload-assignment',[AssignmentController::class,'UploadAssignment']);
+});
