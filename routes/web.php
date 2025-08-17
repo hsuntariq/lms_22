@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +32,19 @@ Route::prefix('/teacher')->group(function(){
 
     // post routes
     Route::post('/upload-assignment',[AssignmentController::class,'UploadAssignment']);
+});
+
+
+// Route group for admin
+
+Route::prefix('/admin')->group(function(){
+    Route::view('/add-user','admin.pages.add-user');
+    Route::post('/add-user',[AdminController::class,'AddUser']);
+});
+
+
+// route group for user
+
+Route::prefix('/user')->group(function(){
+    Route::post('/login',[UserController::class,'Login']);
 });
